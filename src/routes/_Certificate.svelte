@@ -4,20 +4,29 @@
 	import type { CommonCertificateInfo } from '$lib/common_certificate_info';
 	import Certificate2ddocDetails from './_Certificate2ddocDetails.svelte';
 	import CertificateDgcDetails from './_CertificateDGCDetails.svelte';
-	import { afterUpdate } from 'svelte';
+	import { afterUpdate, createEventDispatcher } from 'svelte';
 	import { assets } from '$app/paths';
 	export let info: CommonCertificateInfo;
 	export let with_fullscreen = false;
+	const dispatch = createEventDispatcher();
 	$: error = findCertificateError(info);
 	$: source = info.source;
 	async function launchPrint(){
 		console.log("Printing");
 		setTimeout(window.print, 400);
 	}
+	async function scheduleAutoCloseResult(delay: number){
+		setTimeout(()=>{
+			dispatch('close');
+		}, delay);
+	}
 	afterUpdate(() => {
 		// if there is no error, certificat is valid, so printing.
 		if(undefined == error){
 			launchPrint();
+			scheduleAutoCloseResult(4000);
+		}else{
+			scheduleAutoCloseResult(5000);
 		}
 	})
 </script>

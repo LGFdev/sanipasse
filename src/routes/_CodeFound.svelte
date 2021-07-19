@@ -58,7 +58,7 @@
 			{#if status === 'validated'}
 				<div class="alert alert-success mt-4" role="alert">
 					<h5>✅ Certificat validé</h5>
-					<p>Votre participation à l'événement est confirmée.</p>
+					<p>Votre participation à l’événement est confirmée.</p>
 				</div>
 			{/if}
 		</ModalBody>
@@ -75,8 +75,8 @@
 					</Button>
 					<hr />
 					<p class="fst-italic" style="font-size: .7rem">
-						Votre certificat ne sera pas stocké par Sanipasse, ni visible par l'organisateur de
-						l'événement <b>{$invitedTo.event?.name || ''}</b>.
+						Votre certificat ne sera pas stocké par Sanipasse, ni visible par l’organisateur de
+						l’événement <b>{$invitedTo.event?.name || ''}</b>.
 					</p>
 				{:else if status === 'sending'}
 					<Button color="secondary" disabled={true}>
@@ -95,8 +95,8 @@
 					Enregistrer dans mon carnet
 				</Button>
 				<p class="fst-italic" style="font-size: .7rem">
-					Votre carnet de test est enregistré localement sur votre appareil et n'est pas envoyé sur
-					les serveurs de sanipasse. Il est disponible depuis la page d'accueil.
+					Votre carnet de test est enregistré localement sur votre appareil et n’est pas envoyé sur
+					les serveurs de sanipasse. Il est disponible depuis la page d’accueil.
 				</p>
 			{/if}
 		</ModalFooter>

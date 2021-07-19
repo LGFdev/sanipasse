@@ -9,14 +9,20 @@
 	import type { CommonCertificateInfo } from '$lib/common_certificate_info';
 	export let codeFound: string | undefined = undefined;
 	let info: CommonCertificateInfo | null = null;
+	let oldInfo: CommonCertificateInfo | null = null;
 	let error = '';
 	let status: 'decoding' | 'notsent' | 'sending' | 'validated' | 'error' = 'notsent';
+	let allreadyScanned: boolean = false;
 	$: if (codeFound) onCode(codeFound);
 	async function onCode(codeFound: string) {
 		try {
 			status = 'decoding';
 			promise = null;
-			if (codeFound) info = await parse_any(codeFound);
+			if (codeFound) {
+				oldInfo = info;
+				info = await parse_any(codeFound);
+				allreadyScanned = null != oldInfo && info.code == oldInfo.code;
+			};
 			status = 'notsent';
 			error = '';
 		} catch (err) {
@@ -53,7 +59,7 @@
 		{/if}
 
 		<ModalBody>
-			<CertificateBox {info} on:close={toggle}/>
+			<CertificateBox {info} allreadyPrinted={allreadyScanned} on:close={toggle}/>
 			<ShowPromiseError {promise} />
 			{#if status === 'validated'}
 				<div class="alert alert-success mt-4" role="alert">

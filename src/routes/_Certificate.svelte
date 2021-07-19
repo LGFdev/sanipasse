@@ -4,10 +4,21 @@
 	import type { CommonCertificateInfo } from '$lib/common_certificate_info';
 	import Certificate2ddocDetails from './_Certificate2ddocDetails.svelte';
 	import CertificateDgcDetails from './_CertificateDGCDetails.svelte';
+	import { afterUpdate } from 'svelte';
 	export let info: CommonCertificateInfo;
 	export let with_fullscreen = false;
 	$: error = findCertificateError(info);
 	$: source = info.source;
+	async function launchPrint(){
+		console.log("Printing");
+		setTimeout(window.print, 400);
+	}
+	afterUpdate(() => {
+		// if there is no error, certificat is valid, so printing.
+		if(undefined == error){
+			launchPrint();
+		}
+	})
 </script>
 
 <Alert color={error ? 'warning' : 'info'} fade={false}>

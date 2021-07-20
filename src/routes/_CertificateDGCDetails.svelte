@@ -3,10 +3,15 @@
 	import type { DGC } from '$lib/digital_green_certificate';
 	export let certificate: DGC;
 	const { hcert } = certificate;
-	function showTimestamp(time_seconds: number | string) {
+
+	function showTimestamp(time_seconds: number | string, options: { include_time?: boolean } = {}) {
 		const source = typeof time_seconds === 'number' ? time_seconds * 1000 : time_seconds;
-		return new Date(source).toLocaleDateString('fr-FR');
+		const date = new Date(source);
+		const date_str = date.toLocaleDateString('fr-FR');
+		const time_str = date.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
+		return options.include_time ? `${date_str} à ${time_str}` : date_str;
 	}
+
 	function lineIf<E, F>(elem: E | undefined | null, map: (x: E) => F): F[] {
 		return !elem ? [] : [map(elem)];
 	}
@@ -18,6 +23,11 @@
 	): F[] {
 		if (a && b && a.toLowerCase() === b.toLowerCase()) return [];
 		return lineIf(a, map);
+	}
+
+	function parseX509Attributes(line: string): { C?: string; O?: string; CN?: string; OU?: string } {
+		const attrs = line.split(',');
+		return Object.fromEntries(attrs.map((line) => line.trim().split('=')));
 	}
 
 	const manufacturers: { [code: string]: string } = {
@@ -33,10 +43,10 @@
 	};
 
 	const vaccines: { [code: string]: string } = {
-		'EU/1/20/1528': 'Comirnaty',
-		'EU/1/20/1507': 'COVID-19 Vaccine Moderna',
-		'EU/1/21/1529': 'Vaxzevria',
-		'EU/1/20/1525': 'COVID-19 Vaccine Janssen'
+		'EU/1/20/1528': 'vaccin Pfizer–BioNTech contre la Covid-19',
+		'EU/1/20/1507': 'vaccin de Moderna contre la Covid-19',
+		'EU/1/21/1529': "vaccin d'AstraZeneca-Oxford contre la Covid-19",
+		'EU/1/20/1525': 'vaccin de Janssen contre la Covid-19'
 	};
 
 	const diseases: { [code: string]: string } = {
@@ -52,6 +62,13 @@
 		'260373001': 'Detected'
 	};
 
+	const organizations: { [code: string]: string } = {
+		CNAM: "Caisse nationale de l'Assurance Maladie"
+	};
+
+	const issuer_info = parseX509Attributes(certificate.certificate.issuer);
+	const subject_info = parseX509Attributes(certificate.certificate.subject);
+
 	function flag_emoji(country: string) {
 		const codes = [0xd83c, 0xdde6, 0xd83c, 0xdde6]; // 🇦🇦
 		for (const i of [0, 1]) codes[i * 2 + 1] += country[i].charCodeAt(0) - 'A'.charCodeAt(0);
@@ -61,6 +78,7 @@
 	interface Line {
 		name: string;
 		value: string | number;
+		link?: string;
 	}
 	interface Card {
 		title: string;
@@ -96,9 +114,13 @@
 				{ name: 'Numéro de la dose', value: vaccine.dn },
 				{ name: 'Nombre de doses requises', value: vaccine.sd },
 				{ name: 'Date de vaccination', value: showTimestamp(vaccine.dt) },
-				{ name: 'Entité émettrice', value: vaccine.is },
+				{ name: 'Entité émettrice', value: organizations[vaccine.is] || vaccine.is },
 				{ name: 'Fabricant de vaccin', value: manufacturers[vaccine.ma] || vaccine.ma },
-				{ name: 'Produit vaccinal', value: vaccines[vaccine.mp] || vaccine.mp },
+				{
+					name: 'Produit vaccinal',
+					value: vaccines[vaccine.mp] || vaccine.mp,
+					link: vaccines[vaccine.mp] && 'https://fr.wikipedia.org/wiki/' + vaccines[vaccine.mp]
+				},
 				{ name: 'Agent prophylactique', value: vaccine.vp },
 				{ name: 'Maladie ciblée', value: diseases[vaccine.tg] || vaccine.tg },
 				{ name: 'Identifiant unique', value: vaccine.ci }
@@ -108,12 +130,15 @@
 			title: 'Informations du test de dépistage',
 			lines: [
 				{ name: 'Résultat du test', value: test_result[test.tr] || test.tr },
+				...lineIf(test.sc, (d) => ({
+					name: 'Date de prélèvement',
+					value: showTimestamp(d, { include_time: true })
+				})),
 				{ name: 'Pays de test', value: `${flag_emoji(test.co)} (${test.co})` },
 				{ name: 'Type de test', value: showTimestamp(test.tt) },
-				{ name: 'Entité émettrice', value: test.is },
+				{ name: 'Entité émettrice', value: organizations[test.is] || test.is },
 				...lineIf(test.ma, (value) => ({ name: 'Nom RAT du test et du fabricant', value })),
 				...lineIf(test.nm, (value) => ({ name: 'Nom NAA', value })),
-				...lineIf(test.sc, (d) => ({ name: 'Date', value: showTimestamp(d) })),
 				{ name: 'Identifiant unique', value: test.ci }
 			]
 		})),
@@ -121,18 +146,18 @@
 			title: 'Informations de rémission',
 			lines: [
 				{ name: 'Valide à partir du', value: showTimestamp(r.df) },
-				{ name: "Valide jusqu'au", value: showTimestamp(r.du) },
+				{ name: "Valide jusqu'au", value: showTimestamp(r.du, { include_time: true }) },
 				{ name: 'Date du premier test positif', value: showTimestamp(r.fr) },
 				{ name: 'Pays du test', value: r.co },
 				{ name: 'Identifiant unique', value: r.ci }
 			]
 		})),
 		{
-			title: 'Informations générales de la signature',
+			title: 'Informations sur la signature numérique',
 			lines: [
 				...lineIf(certificate.issuedAt, (issuedAt) => ({
 					name: 'Date de Création',
-					value: showTimestamp(issuedAt)
+					value: showTimestamp(issuedAt, { include_time: true })
 				})),
 				...lineIf(certificate.expiresAt, (expiresAt) => ({
 					name: "Date d'expiration",
@@ -148,8 +173,16 @@
 		{
 			title: 'Informations générales du certificat de signature',
 			lines: [
-				{ name: 'Émetteur', value: certificate.certificate.issuer },
-				{ name: 'Sujet', value: certificate.certificate.subject },
+				...lineIf(issuer_info.C, (c) => ({
+					name: "Pays d'origine",
+					value: `${flag_emoji(c)} (${c})`
+				})),
+				...lineIf(subject_info.O, (org) => ({
+					name: 'Organisation émettrice',
+					value: (organizations[org] || org) + (subject_info.OU ? ' - ' + subject_info.OU : '')
+				})),
+				...lineIf(subject_info.CN, (value) => ({ name: 'Nom du certificat', value })),
+				{ name: 'Certificat signé par', value: certificate.certificate.issuer },
 				{
 					name: 'Date de début de validité',
 					value: showTimestamp(certificate.certificate.notBefore)
@@ -171,7 +204,13 @@
 					{#each card.lines as line}
 						<tr>
 							<th scope="row" class="text-start">{line.name}</th>
-							<td class="text-end">{line.value}</td>
+							<td class="text-end">
+								{#if line.link}
+									<a href={line.link}>{line.value}</a>
+								{:else}
+									{line.value}
+								{/if}
+							</td>
 						</tr>
 					{:else}
 						Aucune information

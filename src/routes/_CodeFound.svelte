@@ -9,14 +9,20 @@
 	import type { CommonCertificateInfo } from '$lib/common_certificate_info';
 	export let codeFound: string | undefined = undefined;
 	let info: CommonCertificateInfo | null = null;
+	let oldInfo: CommonCertificateInfo | null = null;
 	let error = '';
 	let status: 'decoding' | 'notsent' | 'sending' | 'validated' | 'error' = 'notsent';
+	let allreadyScanned: boolean = false;
 	$: if (codeFound) onCode(codeFound);
 	async function onCode(codeFound: string) {
 		try {
 			status = 'decoding';
 			promise = null;
-			if (codeFound) info = await parse_any(codeFound);
+			if (codeFound) {
+				oldInfo = info;
+				info = await parse_any(codeFound);
+				allreadyScanned = null != oldInfo && info.code == oldInfo.code;
+			};
 			status = 'notsent';
 			error = '';
 		} catch (err) {
@@ -53,12 +59,12 @@
 		{/if}
 
 		<ModalBody>
-			<CertificateBox {info} />
+			<CertificateBox {info} allreadyPrinted={allreadyScanned} on:close={toggle}/>
 			<ShowPromiseError {promise} />
 			{#if status === 'validated'}
 				<div class="alert alert-success mt-4" role="alert">
 					<h5>✅ Certificat validé</h5>
-					<p>Votre participation à l'événement est confirmée.</p>
+					<p>Votre participation à l’événement est confirmée.</p>
 				</div>
 			{/if}
 		</ModalBody>
@@ -75,8 +81,8 @@
 					</Button>
 					<hr />
 					<p class="fst-italic" style="font-size: .7rem">
-						Votre certificat ne sera pas stocké par Sanipasse, ni visible par l'organisateur de
-						l'événement <b>{$invitedTo.event?.name || ''}</b>.
+						Votre certificat ne sera pas stocké par Sanipasse, ni visible par l’organisateur de
+						l’événement <b>{$invitedTo.event?.name || ''}</b>.
 					</p>
 				{:else if status === 'sending'}
 					<Button color="secondary" disabled={true}>
@@ -95,8 +101,8 @@
 					Enregistrer dans mon carnet
 				</Button>
 				<p class="fst-italic" style="font-size: .7rem">
-					Votre carnet de test est enregistré localement sur votre appareil et n'est pas envoyé sur
-					les serveurs de sanipasse. Il est disponible depuis la page d'accueil.
+					Votre carnet de test est enregistré localement sur votre appareil et n’est pas envoyé sur
+					les serveurs de sanipasse. Il est disponible depuis la page d’accueil.
 				</p>
 			{/if}
 		</ModalFooter>

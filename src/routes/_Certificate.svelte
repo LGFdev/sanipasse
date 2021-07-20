@@ -4,10 +4,38 @@
 	import type { CommonCertificateInfo } from '$lib/common_certificate_info';
 	import Certificate2ddocDetails from './_Certificate2ddocDetails.svelte';
 	import CertificateDgcDetails from './_CertificateDGCDetails.svelte';
+	import { afterUpdate, createEventDispatcher } from 'svelte';
+	import { assets } from '$app/paths';
 	export let info: CommonCertificateInfo;
 	export let with_fullscreen = false;
+	export let allreadyPrinted = false;
+	const dispatch = createEventDispatcher();
 	$: error = findCertificateError(info);
 	$: source = info.source;
+	async function launchPrint(){
+		// check if allready printed or not
+		if(allreadyPrinted){
+			console.log("Allready printed");
+		}else{
+			console.log("Printing");
+			// wait a little for page fully rendered
+			setTimeout(window.print, 400);
+		}
+	}
+	async function scheduleAutoCloseResult(delay: number){
+		setTimeout(()=>{
+			dispatch('close');
+		}, delay);
+	}
+	afterUpdate(() => {
+		// if there is no error, certificat is valid, so printing.
+		if(undefined == error){
+			launchPrint();
+			scheduleAutoCloseResult(4000);
+		}else{
+			scheduleAutoCloseResult(5000);
+		}
+	})
 </script>
 
 <Alert color={error ? 'warning' : 'info'} fade={false}>
@@ -20,7 +48,7 @@
 		<div class="col-sm-0 col-md-3 text-center align-middle emoji">
 			{info.type === 'vaccination' ? '💉' : '🧪'}
 		</div>
-		<Col sm="12" md="9">
+		<Col sm="12" md="9" class="printed">
 			<h4>
 				{info.type === 'vaccination'
 					? 'Vaccin'
@@ -34,11 +62,22 @@
 				<span class="last_name">{info.last_name}</span>
 			</p>
 			<p>🎂 Né(e) le {info.date_of_birth.toLocaleDateString('fr')}</p>
+			<p>Vérifié le {new Date().toLocaleString('fr-FR',undefined)}</p>
 		</Col>
 	</Row>
 	<Row>
 		{#if error}
-			<p class="error">⚠️ <strong>{error}</strong></p>
+			<div class="error">
+				<audio autoplay src="{assets}/invalid.mp3" />
+				<p class="ronded_icon">✖</p>
+				<p>⚠️ <strong>{error}</strong></p>
+			</div>
+		{:else}
+			<div class="valid">
+				<audio autoplay src="{assets}/valid.mp3" />
+				<p class="ronded_icon">✓</p>
+				<p>Passe valide. Prener votre ticket.</p>
+			</div>
 		{/if}
 		<details>
 			{#if source.format === '2ddoc'}
@@ -61,4 +100,47 @@
 		font-size: 3.5em;
 		margin: auto;
 	}
+
+	.ronded_icon{
+		width: 20rem;
+		height: 20rem;
+		border-radius: 50%;
+		text-align: center;
+		display: block;
+		margin: 0 auto;
+	}
+	.error p.ronded_icon{
+		background-color: #ff0000;
+		font-size: 12rem;
+	}
+	.error p{
+		background-color: #ffa100;
+		color: black;
+		font-size: 1.5rem;
+		text-align: center;
+	}
+	.valid p.ronded_icon{
+		background-color: #0dff00;
+		font-size: 12rem;
+	}
+	.valid p{
+		font-size: 1.5rem;
+		text-align: center;
+	}
+	@media print {
+		:global(div){
+			visibility: collapse;
+		}
+		:global(div.printed *){
+			visibility: visible;
+		}
+		:global(div.printed){
+			width: 70mm;
+			height: 50mm;
+			position: absolute;
+			top: 5mm;
+			left: 5mm;
+		}
+	}
+
 </style>

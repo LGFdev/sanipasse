@@ -5,6 +5,7 @@
 	import Certificate2ddocDetails from './_Certificate2ddocDetails.svelte';
 	import CertificateDgcDetails from './_CertificateDGCDetails.svelte';
 	import { afterUpdate } from 'svelte';
+	import { assets } from '$app/paths';
 	export let info: CommonCertificateInfo;
 	export let with_fullscreen = false;
 	$: error = findCertificateError(info);
@@ -51,11 +52,13 @@
 	<Row>
 		{#if error}
 			<div class="error">
+				<audio autoplay src="{assets}/invalid.mp3" />
 				<p class="ronded_icon">✖</p>
 				<p>⚠️ <strong>{error}</strong></p>
 			</div>
 		{:else}
 			<div class="valid">
+				<audio autoplay src="{assets}/valid.mp3" />
 				<p class="ronded_icon">✓</p>
 				<p>Passe valide. Prener votre ticket.</p>
 			</div>

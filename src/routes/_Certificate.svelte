@@ -123,6 +123,10 @@
 		background-color: #0dff00;
 		font-size: 12rem;
 	}
+	.valid p{
+		font-size: 1.5rem;
+		text-align: center;
+	}
 	@media print {
 		:global(div){
 			visibility: collapse;

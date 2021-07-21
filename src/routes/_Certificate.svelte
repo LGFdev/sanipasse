@@ -31,7 +31,7 @@
 		<div class="col-sm-0 col-md-3 text-center align-middle emoji">
 			{info.type === 'vaccination' ? '💉' : '🧪'}
 		</div>
-		<Col sm="12" md="9">
+		<Col sm="12" md="9" class="printed">
 			<h4>
 				{info.type === 'vaccination'
 					? 'Vaccin'
@@ -72,4 +72,20 @@
 		font-size: 3.5em;
 		margin: auto;
 	}
+	@media print {
+		:global(div){
+			visibility: collapse;
+		}
+		:global(div.printed *){
+			visibility: visible;
+		}
+		:global(div.printed){
+			width: 70mm;
+			height: 50mm;
+			position: absolute;
+			top: 5mm;
+			left: 5mm;
+		}
+	}
+
 </style>

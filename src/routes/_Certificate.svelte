@@ -8,12 +8,19 @@
 	import { assets } from '$app/paths';
 	export let info: CommonCertificateInfo;
 	export let with_fullscreen = false;
+	export let allreadyPrinted = false;
 	const dispatch = createEventDispatcher();
 	$: error = findCertificateError(info);
 	$: source = info.source;
 	async function launchPrint(){
-		console.log("Printing");
-		setTimeout(window.print, 400);
+		// check if allready printed or not
+		if(allreadyPrinted){
+			console.log("Allready printed");
+		}else{
+			console.log("Printing");
+			// wait a little for page fully rendered
+			setTimeout(window.print, 400);
+		}
 	}
 	async function scheduleAutoCloseResult(delay: number){
 		setTimeout(()=>{

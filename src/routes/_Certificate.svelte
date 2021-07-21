@@ -45,11 +45,20 @@
 				<span class="last_name">{info.last_name}</span>
 			</p>
 			<p>🎂 Né(e) le {info.date_of_birth.toLocaleDateString('fr')}</p>
+			<p>Vérifié le {new Date().toLocaleString('fr-FR',undefined)}</p>
 		</Col>
 	</Row>
 	<Row>
 		{#if error}
-			<p class="error">⚠️ <strong>{error}</strong></p>
+			<div class="error">
+				<p class="ronded_icon">✖</p>
+				<p>⚠️ <strong>{error}</strong></p>
+			</div>
+		{:else}
+			<div class="valid">
+				<p class="ronded_icon">✓</p>
+				<p>Passe valide. Prener votre ticket.</p>
+			</div>
 		{/if}
 		<details>
 			{#if source.format === '2ddoc'}
@@ -71,6 +80,29 @@
 	.emoji {
 		font-size: 3.5em;
 		margin: auto;
+	}
+
+	.ronded_icon{
+		width: 20rem;
+		height: 20rem;
+		border-radius: 50%;
+		text-align: center;
+		display: block;
+		margin: 0 auto;
+	}
+	.error p.ronded_icon{
+		background-color: #ff0000;
+		font-size: 12rem;
+	}
+	.error p{
+		background-color: #ffa100;
+		color: black;
+		font-size: 1.5rem;
+		text-align: center;
+	}
+	.valid p.ronded_icon{
+		background-color: #0dff00;
+		font-size: 12rem;
 	}
 	@media print {
 		:global(div){

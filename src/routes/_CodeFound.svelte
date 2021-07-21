@@ -53,7 +53,7 @@
 		{/if}
 
 		<ModalBody>
-			<CertificateBox {info} />
+			<CertificateBox {info} on:close={toggle}/>
 			<ShowPromiseError {promise} />
 			{#if status === 'validated'}
 				<div class="alert alert-success mt-4" role="alert">

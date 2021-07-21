@@ -68,12 +68,14 @@
 	<Row>
 		{#if error}
 			<div class="error">
+				<!-- svelte-ignore a11y-media-has-caption -->
 				<audio autoplay src="{assets}/invalid.mp3" />
 				<p class="ronded_icon">✖</p>
 				<p>⚠️ <strong>{error}</strong></p>
 			</div>
 		{:else}
 			<div class="valid">
+				<!-- svelte-ignore a11y-media-has-caption -->
 				<audio autoplay src="{assets}/valid.mp3" />
 				<p class="ronded_icon">✓</p>
 				<p>Passe valide. Prener votre ticket.</p>

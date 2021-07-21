@@ -71,7 +71,6 @@
 				<span class="last_name">{info.last_name}</span>
 			</p>
 			<p>🎂 Né(e) le {info.date_of_birth.toLocaleDateString('fr')}</p>
-			<p>Vérifié le {new Date().toLocaleString('fr-FR',undefined)}</p>
 		</Col>
 	</Row>
 	<Row>

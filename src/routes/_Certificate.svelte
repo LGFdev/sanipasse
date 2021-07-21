@@ -18,9 +18,18 @@
 			console.log("Allready printed");
 		}else{
 			console.log("Printing");
-			// wait a little for page fully rendered
-			setTimeout(window.print, 400);
+			printing()
 		}
+	}
+	async function printing(){
+		const urlSearchParams: URLSearchParams = new URLSearchParams()
+		urlSearchParams.append('type',info.type)
+		urlSearchParams.append('first_name',info.first_name)
+		urlSearchParams.append('last_name',info.last_name)
+		urlSearchParams.append('date_of_birth',info.date_of_birth.toLocaleString('fr'))
+		const url: String = '/ticket?' + urlSearchParams.toString()
+		console.log("printing: open popup",url)
+		window.open(url, 'Printing', 'width=350,height=300')
 	}
 	async function scheduleAutoCloseResult(delay: number){
 		setTimeout(()=>{
@@ -129,20 +138,4 @@
 		font-size: 1.5rem;
 		text-align: center;
 	}
-	@media print {
-		:global(div){
-			visibility: collapse;
-		}
-		:global(div.printed *){
-			visibility: visible;
-		}
-		:global(div.printed){
-			width: 70mm;
-			height: 50mm;
-			position: absolute;
-			top: 5mm;
-			left: 5mm;
-		}
-	}
-
 </style>

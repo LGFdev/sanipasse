@@ -22,7 +22,7 @@
 	<meta
 		name="description"
 		content="Sanipasse permet de vérifier les certificats de test et de vaccination,
-et d'organiser des évènements en toute sécurité."
+et d’organiser des évènements en toute sécurité."
 	/>
 </svelte:head>
 
@@ -33,7 +33,7 @@ et d'organiser des évènements en toute sécurité."
 
 	{#if $invitedTo.eventId}
 		<p>
-			Ceci est une invitation à l'évènement
+			Ceci est une invitation à l’évènement
 			<i class="bg-light">{$invitedTo.event?.name || '...'}</i>, qui aura lieu le
 			{$invitedTo.event ? new Date($invitedTo.event.date).toLocaleString('fr') : '...'}.
 		</p>
@@ -44,12 +44,12 @@ et d'organiser des évènements en toute sécurité."
 		<p>
 			Votre passe sanitaire est <a href="apropos#donnees">strictement privée</a>. Il ne sera
 			<b>pas conservé</b>
-			sur notre serveur, <b>ni visible</b> par l'organisateur de l'événement.
+			sur notre serveur, <b>ni visible</b> par l’organisateur de l’événement.
 		</p>
 	{:else}
 		<p>
 			Sanipasse est un logiciel libre de vérification des certificats de test ou de vaccination, et
-			d'organisation d’événements respectueux des règles sanitaires.
+			d’organisation d’événements respectueux des règles sanitaires.
 		</p>
 		<p>
 			La vérification proposée ci-dessous est <a href="apropos#donnees">strictement privée</a>, et
@@ -68,7 +68,7 @@ et d'organiser des évènements en toute sécurité."
 	{#if !$invitedTo.eventId}
 		<p>
 			Vous pouvez également <i>Créer un événement</i>, pour construire une
-			<a href="apropos#liste">liste d'invités zéro-COVID</a>. Sanipasse générera un lien privé à
+			<a href="apropos#liste">liste d’invités zéro-COVID</a>. Sanipasse générera un lien privé à
 			envoyer à vos invités, depuis lequel ils pourront confirmer leur participation en validant
 			leur passe sanitaire.
 		</p>

@@ -1,6 +1,7 @@
 <script type="ts">
 	import { Alert, Icon, Row, Col } from 'sveltestrap';
 	import { findCertificateError } from '$lib/detect_certificate';
+	import { printTicket } from '$lib/ticket';
 	import type { CommonCertificateInfo } from '$lib/common_certificate_info';
 	import Certificate2ddocDetails from './_Certificate2ddocDetails.svelte';
 	import CertificateDgcDetails from './_CertificateDGCDetails.svelte';
@@ -18,18 +19,11 @@
 			console.log("Allready printed");
 		}else{
 			console.log("Printing");
-			printing()
+			printTicket(
+				info.first_name.toLocaleLowerCase() + " " + info.last_name,
+  			info.date_of_birth.toLocaleDateString('fr')
+			)
 		}
-	}
-	async function printing(){
-		const urlSearchParams: URLSearchParams = new URLSearchParams()
-		urlSearchParams.append('type',info.type)
-		urlSearchParams.append('first_name',info.first_name)
-		urlSearchParams.append('last_name',info.last_name)
-		urlSearchParams.append('date_of_birth',info.date_of_birth.toLocaleString('fr'))
-		const url: String = '/ticket?' + urlSearchParams.toString()
-		console.log("printing: open popup",url)
-		window.open(url, 'Printing', 'width=350,height=300')
 	}
 	async function scheduleAutoCloseResult(delay: number){
 		setTimeout(()=>{

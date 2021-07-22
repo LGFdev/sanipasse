@@ -62,10 +62,10 @@ export async function printTicket(
     date_of_birth: String = ""
   ){
   const printingWindow = window.open("about:blank", 'Printing', 'width=350,height=300');
-  setTimeout(()=>{
+  printingWindow.onload = ()=>{
     printingWindow.document.title = "Sanipasse impression"
     printingWindow.document.body.innerHTML = getTicketHtml(name, date_of_birth);
   	printingWindow.print();
   	printingWindow.close();
-  },150)
+  }
 }

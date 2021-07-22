@@ -31,7 +31,7 @@ afterUpdate(() => {
 <body>
 {#if undefined != $header}
 <header>
-  <p>{$header}</p>
+  <pre>{$header}</pre>
 </header>
 {/if}
 <article>
@@ -42,7 +42,7 @@ afterUpdate(() => {
 </article>
 {#if undefined != $footer}
 <footer>
-  <p>{$footer}</p>
+  <pre>{$footer}</pre>
 </footer>
 {/if}
 </body>
@@ -66,8 +66,8 @@ input{
 article{
   margin: 2mm 0;
 }
-header p,
-footer p{
+header pre,
+footer pre{
   text-align: center;
 }
 </style>

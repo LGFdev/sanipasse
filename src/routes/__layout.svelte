@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import {
 		Navbar,
 		NavbarBrand,
@@ -12,12 +13,18 @@
 	} from 'sveltestrap';
 	let isOpen = false;
 	const onupdate = (e: any) => (isOpen = e.detail.isOpen);
+
+	let currentPath: String
+	onMount(() => {
+		currentPath = window.location.pathname;
+	})
 </script>
 
 <svelte:head>
 	<title>Sanipasse - vérification de pass sanitaire</title>
 </svelte:head>
 
+{#if '/ticket' != currentPath}
 <Navbar color="light" light expand="md">
 	<NavbarBrand href="/">
 		<Icon name="calendar2-check" />
@@ -35,6 +42,7 @@
 		</Nav>
 	</Collapse>
 </Navbar>
+{/if}
 
 <main>
 	<Container>

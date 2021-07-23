@@ -4,8 +4,10 @@
 	import Wallet from './wallet.svelte';
 	import ShowPromiseError from './_showPromiseError.svelte';
 	let links = [
-		{ href: '/import/video', text: '📸 Scanner un certificat' },
+		{ href: '/import/video', text: '📸 Scanner un certificat (cam)' },
 		{ href: '/ticketConfig', text: '🎫 Configurer le ticket à imprimer' },
+		{ href: '/borne', text: '|| Scanner un certificat (scanner)' },
+		{ href: '/borne/config', text: '  Parrametrer le scanner' },
 		{ href: '/import/file', text: '📁 Importer un fichier' },
 		{ href: '/import/text', text: '🔗 Entrer un lien TousAntiCovid' }
 	];

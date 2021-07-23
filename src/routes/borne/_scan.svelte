@@ -2,32 +2,33 @@
 	import type { CommonCertificateInfo } from '$lib/common_certificate_info';
 	import { findCertificateError, parse_any } from '$lib/detect_certificate';
 	import { assets } from '$app/paths';
+	import type { ConfigProperties } from './_config';
+
+	export let config: ConfigProperties;
+	const { decode_after_s, reset_after_s } = config;
 
 	let code: string = '';
 	let codeFoundPromise: Promise<CommonCertificateInfo> | undefined = undefined;
-	let decode_after_ms = 1000;
-	let reset_after_ms = 4000;
 
-	let place_name = '';
-	let animate = false;
 	let timeout: NodeJS.Timeout | undefined = undefined;
 	let reset_timeout: NodeJS.Timeout | undefined = undefined;
 
+	let last_event: KeyboardEvent | null = null;
+
 	function onKeyPress(event: KeyboardEvent) {
+		last_event = event;
+		if (event.key.length > 1) return;
 		code += event.key;
 		if (timeout !== undefined) clearTimeout(timeout);
 		if (reset_timeout !== undefined) clearTimeout(reset_timeout);
-		timeout = setTimeout(resetCode, decode_after_ms);
-		animate = false;
-		setTimeout(() => (animate = true), 5);
+		timeout = setTimeout(launchParsing, decode_after_s * 1000);
 		event.preventDefault();
-		codeFoundPromise = validateCertificateCode(code);
 	}
 
 	function onPaste({ clipboardData }: ClipboardEvent) {
 		if (!clipboardData) return;
 		codeFoundPromise = validateCertificateCode(clipboardData.getData('text'));
-		resetCode();
+		launchParsing();
 	}
 
 	async function validateCertificateCode(code: string): Promise<CommonCertificateInfo> {
@@ -37,13 +38,14 @@
 		else return cert;
 	}
 
-	function resetCode() {
+	function launchParsing() {
 		console.log('Detected code before reset: ', code);
+		codeFoundPromise = validateCertificateCode(code);
 		timeout = undefined;
 		code = '';
 		reset_timeout = setTimeout(() => {
 			codeFoundPromise = undefined;
-		}, reset_after_ms);
+		}, reset_after_s * 1000);
 	}
 
 	function showName({ first_name, last_name }: CommonCertificateInfo): string {
@@ -58,67 +60,75 @@
 
 <svelte:window on:keypress={onKeyPress} on:paste={onPaste} />
 
-{#if timeout !== undefined}
-	<div class="progress">
-		<div
-			class="progress-bar"
-			role="progressbar"
-			class:animate
-			style="animation-duration: {decode_after_ms}ms"
-		/>
-	</div>
-{:else if codeFoundPromise != undefined}
-	{#await codeFoundPromise}
-		Décodage du code...
-	{:then pass}
-		<!-- svelte-ignore a11y-media-has-caption -->
-		<audio autoplay src="{assets}/valid.mp3" />
-		<div class="alert alert-success" role="alert">
-			<div class="row">
-				<div class="col-md-2"><div class="sign shallpass" /></div>
-				<div class="col-md-10">
-					<h3>Bienvenue, {showName(pass)}</h3>
-					<p>Votre passe est validé.</p>
-					<div class="progress">
-						<div
-							class="progress-bar bg-success animate"
-							role="progressbar"
-							style="animation-duration: {reset_after_ms}ms"
-						/>
+<div class="main container">
+	{#if timeout !== undefined}
+		Scan du QR code en cours...
+	{:else if codeFoundPromise != undefined}
+		{#await codeFoundPromise}
+			Décodage du code...
+		{:then pass}
+			<!-- svelte-ignore a11y-media-has-caption -->
+			<audio autoplay src="{assets}/valid.mp3" />
+			<div class="alert alert-success" role="alert">
+				<div class="row">
+					<div class="col-md-2"><div class="sign shallpass" /></div>
+					<div class="col-md-10">
+						<h3>Bienvenue, {showName(pass)}</h3>
+						<p>Votre passe est validé.</p>
+						<div class="progress">
+							<div
+								class="progress-bar bg-success animate"
+								role="progressbar"
+								style="animation-duration: {reset_after_s}s"
+							/>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	{:catch err}
-		<!-- svelte-ignore a11y-media-has-caption -->
-		<audio autoplay src="{assets}/invalid.mp3" />
-		<div class="alert alert-danger" role="alert">
-			<div class="row">
-				<div class="col-md-2"><div class="sign shallnotpass" /></div>
-				<div class="col-md-10">
-					<h3>Passe sanitaire invalide</h3>
-					<pre>{err.message}</pre>
-					<div class="progress">
-						<div
-							class="progress-bar bg-danger animate"
-							role="progressbar"
-							style="animation-duration: {reset_after_ms}ms"
-						/>
+		{:catch err}
+			<!-- svelte-ignore a11y-media-has-caption -->
+			<audio autoplay src="{assets}/invalid.mp3" />
+			<div class="alert alert-danger" role="alert">
+				<div class="row">
+					<div class="col-md-2"><div class="sign shallnotpass" /></div>
+					<div class="col-md-10">
+						<h3>Passe sanitaire invalide</h3>
+						<pre>{err.message}</pre>
+						<div class="progress">
+							<div
+								class="progress-bar bg-danger animate"
+								role="progressbar"
+								style="animation-duration: {reset_after_s}s"
+							/>
+						</div>
 					</div>
 				</div>
 			</div>
+		{/await}
+	{:else}
+		<div class="row justify-content-center w-100">
+			{#each config.logo_urls as url}
+				<img alt="logo" src={url} class="col" style="object-fit: contain; max-height: 10em;" />
+			{/each}
 		</div>
-	{/await}
-{:else}
-	<h1>
-		Bienvenue {#if place_name}chez {place_name} {/if}!
-	</h1>
-	<p>
-		Scannez votre passe sanitaire depuis la section “carnets“ de votre application TousAntiCovid ou
-		Sanipasse. Vous pouvez aussi scanner directement le QR code papier qui vous a été remis lors de
-		votre test ou de votre vaccination.
+
+		<h1>{config.title}</h1>
+		<p>{config.description}</p>
+	{/if}
+
+	{#if config.debug}
+		<div>
+			Code:
+			<p class="text-break font-monospace">{code}</p>
+			<p>Code length: {code.length}</p>
+			<p>Last key pressed: {JSON.stringify(last_event?.key, null, ' ')}</p>
+		</div>
+	{/if}
+
+	<p class="fixed-bottom text-muted fw-lighter fst-italic" style="font-size: .8em">
+		{config.bottom_infos}
 	</p>
-{/if}
+</div>
 
 <style>
 	.progress-bar {

@@ -7,6 +7,8 @@
 	let links = [
 		{ href: '/import/video', text: '📸 Scanner un certificat (cam)' },
 		{ href: '/ticketConfig', text: '🎫 Configurer le ticket à imprimer' },
+		{ href: '/borne', text: '|| Scanner un certificat (scanner)' },
+		{ href: '/borne/config', text: '  Parrametrer le scanner' },
 		{ href: '/import/file', text: '📁 Importer un fichier' },
 		{ href: '/import/text', text: '🔗 Entrer un lien TousAntiCovid' }
 	];
@@ -45,7 +47,11 @@ et d’organiser des évènements en toute sécurité."
 		<p>
 			Votre passe sanitaire est <a href="apropos#donnees">strictement privé</a>. Il ne sera
 			<b>pas conservé</b>
+<<<<<<< HEAD
 			sur notre serveur, <b>ni visible</b> par l’organisateur de l’événement.
+=======
+			sur notre serveur, <b>ni visible</b> par l'organisateur de l’événement.
+>>>>>>> 97d5784a193a0991530820e3ed0ac81e2574ad24
 		</p>
 	{:else}
 		<p>

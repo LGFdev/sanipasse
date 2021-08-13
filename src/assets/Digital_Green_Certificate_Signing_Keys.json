@@ -1364,6 +1364,23 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE8SjDdFFGxTunJ0RQyxdGDbBKVUjHz9gKydhpKuTZAvYZMzGVVV7NYhJGQqOp4Ox6wU3y+zY666nfAeaAPcINRw=="
 	},
+	"1J9pb87ndV0=": {
+		"serialNumber": "4541037b9551542fb116ebf36d00f123e35c1b71",
+		"subject": "C=GB, ST=NI, L=Belfast, O=Department of Health, OU=DHCNI, CN=DSC_DGC_GB_NI_01",
+		"issuer": "C=GB, ST=NI, L=Belfast, O=Department of Health, OU=DHCNI, CN=CSCA_DGC_GB_NI_01",
+		"notBefore": "2021-07-19T15:22:18.000Z",
+		"notAfter": "2023-07-19T15:22:18.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "4f389794b184b83e61ac485666d3f1f091e986ca",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEZ+fdcTa4UWA/6PT5V4a0+0j1/s++4JQEsW/HvGnxxP7mGfuQDfn/FRdUMGQtTkoCGaky1gpYVZXkkoYu9ZjlUw=="
+	},
 	"vvYa1vaWkGg=": {
 		"serialNumber": "2a1941ee3ff39d46c76ea1107c912bb9df00c8f3",
 		"subject": "C=GR, CN=grnet.gr",
@@ -1646,6 +1663,108 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEcrxlv5/uGbsaXM/QMSpvZV2iNtF0o4QBech6LGpy3OEefbJLf+4iqI19QNWtUXEjlMMytB4+1ESLHdXyki5X2g=="
 	},
+	"lzGYCpOBQsU=": {
+		"serialNumber": "7fe579a881eb001055ae27216b30da120634c771",
+		"subject": "C=NL, O=Aruba, OU=Ministry of Tourism Public Health and Sports, 2.5.4.5=1, CN=Health DSC for recovery",
+		"issuer": "CN=CSCA Health NL, 2.5.4.5=1, OU=Ministry of Health Welfare and Sport, O=Kingdom of the Netherlands, C=NL",
+		"notBefore": "2021-08-03T08:10:51.000Z",
+		"notAfter": "2032-07-31T08:10:51.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "6cbf3a7e477afac0bec47d247374de6b32762d99",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEf85n2j7jSWalqCH8Dquo5E3uyYIwYReoWWAiPkIvnwaaoPUt427OizGvRF35l0wPD6zSkbiQZxWI1DMaf+UeXQ=="
+	},
+	"2Bh+2HrOg0c=": {
+		"serialNumber": "1d5b7e8fa30bd5120b6a458eae8930c75bc98564",
+		"subject": "C=NL, O=Aruba, OU=Ministry of Tourism Public Health and Sports, 2.5.4.5=1, CN=Health DSC for test",
+		"issuer": "CN=CSCA Health NL, 2.5.4.5=1, OU=Ministry of Health Welfare and Sport, O=Kingdom of the Netherlands, C=NL",
+		"notBefore": "2021-08-03T08:12:53.000Z",
+		"notAfter": "2032-07-31T08:12:53.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "a1194dc0b29397670233bd793adbe714e667c0dd",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEKBG1WklnURluKXTg5+tm6/S7pMFLBE8cZ5xNxnCCAL5nvUi6JzSgTjAmOaUNPXVwvA2TYl/GkJNbh4TazMeF3w=="
+	},
+	"ryvXsisPPeU=": {
+		"serialNumber": "102b2740fda8b966a837c196b437f32333a342c0",
+		"subject": "C=NL, O=Aruba, OU=Ministry of Tourism Public Health and Sports, 2.5.4.5=1, CN=Health DSC for vaccinations",
+		"issuer": "CN=CSCA Health NL, 2.5.4.5=1, OU=Ministry of Health Welfare and Sport, O=Kingdom of the Netherlands, C=NL",
+		"notBefore": "2021-08-03T08:13:23.000Z",
+		"notAfter": "2032-07-31T08:13:23.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "08c09ee3fa582a35bd00c66fb1e7780072ce7b19",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEcI1v9r69Swup7ghwGhCA5xoG8SopLiD2DnfkhTydslZQBHc+TuieZ11aHYkD91gmngRXRsGU8Tow/LEoKPkyuQ=="
+	},
+	"0JzyumjttZU=": {
+		"serialNumber": "1311a61314d3e1e7fcac39a8535826d719ec077b",
+		"subject": "C=NL, O=Country of Curacao, OU=Ministry of Health Environment and Nature, 2.5.4.5=1, CN=Health DSC for recovery",
+		"issuer": "CN=CSCA Health NL, 2.5.4.5=1, OU=Ministry of Health Welfare and Sport, O=Kingdom of the Netherlands, C=NL",
+		"notBefore": "2021-08-03T09:13:10.000Z",
+		"notAfter": "2032-07-31T09:13:10.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "8a2022932477ebbb64b4bfc5c04afd49ef33d4af",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAENlKRwpA1S14Zfx6LZuAWm9ExHy86o7O9ijCq4AmZ1dFu2d2wowdylJzAvbbVsR1RoxfNJPzy5dwu9Nsm0PvsEg=="
+	},
+	"T8kbYovQlYU=": {
+		"serialNumber": "47a558b5fd28bd604297b1474f7e48573550d442",
+		"subject": "C=NL, O=Country of Curacao, OU=Ministry of Health Environment and Nature, 2.5.4.5=1, CN=Health DSC for test",
+		"issuer": "CN=CSCA Health NL, 2.5.4.5=1, OU=Ministry of Health Welfare and Sport, O=Kingdom of the Netherlands, C=NL",
+		"notBefore": "2021-08-03T09:14:19.000Z",
+		"notAfter": "2032-07-31T09:14:19.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "8e51d16d098c637a7c40f34802b5c6cc8442148b",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEPVZAyUlqrJ3XW8kCQu401SKWJ1GjF+LBjT16DUZO0RaRdAPsKx8FUBwqRBtn8dPzIP+EWDX7iUppuG0TNkt3Ug=="
+	},
+	"H6b6bQ8qij4=": {
+		"serialNumber": "36861ed6a7d05942a37a740cda1664ef91a3ebb9",
+		"subject": "C=NL, O=Country of Curacao, OU=Ministry of Health Environment and Nature, 2.5.4.5=1, CN=Health DSC for vaccinations",
+		"issuer": "CN=CSCA Health NL, 2.5.4.5=1, OU=Ministry of Health Welfare and Sport, O=Kingdom of the Netherlands, C=NL",
+		"notBefore": "2021-08-03T09:15:10.000Z",
+		"notAfter": "2032-07-31T09:15:10.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "2e58fa542970750edc6809e72e20f3022ee5d8e4",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEawHNq4c7wLusLEYNhn7CBSqk6bdY7Phqjt1+Q+CVRHqBFfSRfWG+9dgoEMBdFHY12g4qsO3nnT2P4qhADwIvng=="
+	},
 	"pSEfhlMubh4=": {
 		"serialNumber": "48ae1b99eef389abbf25990cf3420e2ccf226aeb",
 		"subject": "C=NL, O=Kingdom of the Netherlands, OU=Ministry of Health Welfare and Sport, 2.5.4.5=1, CN=Health DSC for recovery",
@@ -1696,6 +1815,57 @@
 			"namedCurve": "P-256"
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE/DBnhBhTf8TkfsTn4tLEb3mQLCsONkZbY4I5i0zh0WhsDupDshGnu4TE4AgH6Y/uBnsJ+D6QkVAikza/rtw89w=="
+	},
+	"4Ss2raOqhTw=": {
+		"serialNumber": "45961aa092a5fd6cbaf8c48903eeca0407cb4291",
+		"subject": "C=NL, O=Sint Maarten, OU=Ministry of Public Health Social Development and Labor, 2.5.4.5=1, CN=Health DSC for recovery",
+		"issuer": "CN=CSCA Health NL, 2.5.4.5=1, OU=Ministry of Health Welfare and Sport, O=Kingdom of the Netherlands, C=NL",
+		"notBefore": "2021-08-02T18:08:31.000Z",
+		"notAfter": "2032-07-30T18:08:31.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "61c77a2edbcbdc5d44087400207aafecfea5408e",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEQb+DcAtDpjI4ftm5ICNC5KGz10zJvY682GDCREwLupvC17QzWFvc6S0jbk2NJt2VY5V4svj2FfLGkSWbUqUFnQ=="
+	},
+	"ypEjzbYNqEw=": {
+		"serialNumber": "01cd01302b211d929ce3ff892f630e5c1bf5d1de",
+		"subject": "C=NL, O=Sint Maarten, OU=Ministry of Public Health Social Development and Labor, 2.5.4.5=1, CN=Health DSC for test",
+		"issuer": "CN=CSCA Health NL, 2.5.4.5=1, OU=Ministry of Health Welfare and Sport, O=Kingdom of the Netherlands, C=NL",
+		"notBefore": "2021-08-02T18:09:38.000Z",
+		"notAfter": "2032-07-30T18:09:38.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "2bd7bb4beacaa237b4435ebc7a2853e21e028101",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEnRYo0qQ5BM+B3lWzaaqBhgTqQ99wnzj078WYakRSXv7LyJbz21EGEQkNpe3UOlENX5Q7RdzkrrXFbs7pHfNDpw=="
+	},
+	"JsReuAsmza8=": {
+		"serialNumber": "792d9ec52d9054680c6a6c021f5acecbc5c58447",
+		"subject": "C=NL, O=Sint Maarten, OU=Ministry of Public Health Social Development and Labor, 2.5.4.5=1, CN=Health DSC for vaccinations",
+		"issuer": "CN=CSCA Health NL, 2.5.4.5=1, OU=Ministry of Health Welfare and Sport, O=Kingdom of the Netherlands, C=NL",
+		"notBefore": "2021-08-02T18:10:25.000Z",
+		"notAfter": "2032-07-30T18:10:25.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "59666675082cd84bdc11e1301227eef717c49cc4",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAERw+zOjyFNs4ntgwxcvouetTqlBIztiTtJhOi8DesKXv5uX/m1pVAbYium/fhyu0IaBeh3DVOLfLJtPaUEx8eiw=="
 	},
 	"cdm9Ymfwn2I=": {
 		"serialNumber": "59000000056eef20a7c3fbf86a000000000005",
@@ -1815,6 +1985,210 @@
 			"namedCurve": "P-256"
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE6qxT6sSK3TDheWFHTBkfveooRhtUWqEqrELD9B7aAk7xjPS3MBETtmnWb4nRzBINvFwrLDxQCqTX8Jevp33c4Q=="
+	},
+	"r9RtWK9x7dM=": {
+		"serialNumber": "7804c5ca331aa224fce032899a2354ef6fa69158",
+		"subject": "C=SM, ST=San Marino, L=City of San Marino, O=Istituto per la Sicurezza Sociale\\ , OU=DGCOperations, CN=DSC_CSR_DGC_SM_01, E=smdcc@iss.sm",
+		"issuer": "C=SM, ST=SM, L=City of San Marino, O=San Marino Innovation, OU=DGCOperations, CN=CSCA_DGC_SM_01",
+		"notBefore": "2021-06-10T10:45:59.000Z",
+		"notAfter": "2023-06-10T10:45:59.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "fc975789cd83adfcf2b5d268e2ebb29b0a12cf48",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEH2+GOTdCPhSUdDZmaM7hq/hRJkZCd3wPyOwB8lS30s4N81r4XFpv1Yev+1bfB4A173DByhZyIKkdnZc/FfaAXQ=="
+	},
+	"S2V5M1BSTw==": {
+		"serialNumber": "4f0e753c1291e6b8",
+		"subject": "C=UK, O=NHSX, OU=COVID, CN=S2V5M1BSTw==",
+		"issuer": "C=UK, O=NHSX, OU=COVID, CN=CA-temp",
+		"notBefore": "2021-05-01T00:00:00.000Z",
+		"notAfter": "2023-04-30T23:59:59.000Z",
+		"signatureAlgorithm": "RSASSA-PKCS1-v1_5",
+		"fingerprint": "70552ec051de9dae35c23a72ce88e175d507c6c9",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAErltiOh3nmU+x4p5r249O/2fBSnHkjJpas23lhMAtEYeQutHiw0G+zeEUNZ/n++/XbFoY5hH68d27cGaGW6uoxw=="
+	},
+	"S2V5M1JF": {
+		"serialNumber": "51f57c9cfc64e45e",
+		"subject": "C=UK, O=NHSX, OU=COVID, CN=S2V5M1JF",
+		"issuer": "C=UK, O=NHSX, OU=COVID, CN=CA-temp",
+		"notBefore": "2021-05-01T00:00:00.000Z",
+		"notAfter": "2023-04-30T23:59:59.000Z",
+		"signatureAlgorithm": "RSASSA-PKCS1-v1_5",
+		"fingerprint": "09d87cf17571f43f7bd76de8a468693300a85853",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE2ZpDNa1VV6g2PkmyKoL1INO0MtTqE5WT45i3QhY9FFMjbF9ieqnHV4R814wrN3f3vzkx0VN/YJZH4rI1GDlfqw=="
+	},
+	"S2V5MVBSTw==": {
+		"serialNumber": "58804309245c5225",
+		"subject": "C=UK, O=NHSX, OU=COVID, CN=S2V5MVBSTw==",
+		"issuer": "C=UK, O=NHSX, OU=COVID, CN=CA-temp",
+		"notBefore": "2021-05-01T00:00:00.000Z",
+		"notAfter": "2023-04-30T23:59:59.000Z",
+		"signatureAlgorithm": "RSASSA-PKCS1-v1_5",
+		"fingerprint": "8d15cf1ead9f1cb3ead49f44f051d1e480890cdb",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEyfUqlGg4hfyPYgZJzl1KepkfTaX+F3592syCJ0ylVOHA4fE6vavLXE4cG+Whz/eqyW/rFuZ0HBHHEskmpCngOA=="
+	},
+	"S2V5MVJF": {
+		"serialNumber": "5ddfeab4c85cc3e8",
+		"subject": "C=UK, O=NHSX, OU=COVID, CN=S2V5MVJF",
+		"issuer": "C=UK, O=NHSX, OU=COVID, CN=CA-temp",
+		"notBefore": "2021-05-01T00:00:00.000Z",
+		"notAfter": "2023-04-30T23:59:59.000Z",
+		"signatureAlgorithm": "RSASSA-PKCS1-v1_5",
+		"fingerprint": "6d539d5f2a64512961b6f91cd4abe8fc2acd0d0f",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEtWokvmqrJOv/0PO9Vy8lpb6SgWw+rao0qIXntO/Bf7ExryL3yyKRI73IqAh38Lk4joqHrZK8XLZV9PMclgmTVg=="
+	},
+	"S2V5MlBSTw==": {
+		"serialNumber": "0ef0cccf6905f490",
+		"subject": "C=UK, O=NHSX, OU=COVID, CN=S2V5MlBSTw==",
+		"issuer": "C=UK, O=NHSX, OU=COVID, CN=CA-temp",
+		"notBefore": "2021-05-01T00:00:00.000Z",
+		"notAfter": "2023-04-30T23:59:59.000Z",
+		"signatureAlgorithm": "RSASSA-PKCS1-v1_5",
+		"fingerprint": "58706938a2278407ce597d3dcfd6d0e2391a6f57",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEP6P6ZlbhcW1xZpp91qagUY+iLIyuu+CynzAlrqiiseqmOYH8uJ71CkbEYhbVh8TemnbaR0unE2j9EPK7Y/x7Vg=="
+	},
+	"S2V5MlJF": {
+		"serialNumber": "2e6379d0fc2c9237",
+		"subject": "C=UK, O=NHSX, OU=COVID, CN=S2V5MlJF",
+		"issuer": "C=UK, O=NHSX, OU=COVID, CN=CA-temp",
+		"notBefore": "2021-05-01T00:00:00.000Z",
+		"notAfter": "2023-04-30T23:59:59.000Z",
+		"signatureAlgorithm": "RSASSA-PKCS1-v1_5",
+		"fingerprint": "7c8f3845ab064a2c8102dc68760b147d46b7eee2",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEAauvVllnjXm0toiI2cUQfCTdZiDQ6kvtoo1bSnl8W3Rq7WyOeHWYKhBaQ4rEBceqNl5+v1ZLGj0WfnIhXh246Q=="
+	},
+	"S2V5NFBSTw==": {
+		"serialNumber": "338510d507cc1016",
+		"subject": "C=UK, O=NHSX, OU=COVID, CN=S2V5NFBSTw==",
+		"issuer": "C=UK, O=NHSX, OU=COVID, CN=CA-temp",
+		"notBefore": "2021-05-01T00:00:00.000Z",
+		"notAfter": "2023-04-30T23:59:59.000Z",
+		"signatureAlgorithm": "RSASSA-PKCS1-v1_5",
+		"fingerprint": "714799238d8384f758487b462fa066d338754e38",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEEfIefhjjacwZ+xxKudJGqdHr0j95tWtYIUGPeWV2XWmduygfe3oIFJu/A2kYGmeZ4u/ERSTNM2ZXuE9k19xVJQ=="
+	},
+	"S2V5NFJF": {
+		"serialNumber": "27499e7a58558768",
+		"subject": "C=UK, O=NHSX, OU=COVID, CN=S2V5NFJF",
+		"issuer": "C=UK, O=NHSX, OU=COVID, CN=CA-temp",
+		"notBefore": "2021-05-01T00:00:00.000Z",
+		"notAfter": "2023-04-30T23:59:59.000Z",
+		"signatureAlgorithm": "RSASSA-PKCS1-v1_5",
+		"fingerprint": "c6393784bc1380394db56477b196c8f69340a2e2",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE8g5iFLRT7NyRmKp7pcP8uEgoHFhfmcXOLLD4RUtX50/Rh4Cz7l/faAiODNMmCkcWLA1Z8WOZoNFQsdmeDjXuLQ=="
+	},
+	"S2V5NVBSTw==": {
+		"serialNumber": "0a86f0f79a017dc9",
+		"subject": "C=UK, O=NHSX, OU=COVID, CN=S2V5NVBSTw==",
+		"issuer": "C=UK, O=NHSX, OU=COVID, CN=CA-temp",
+		"notBefore": "2021-05-01T00:00:00.000Z",
+		"notAfter": "2023-04-30T23:59:59.000Z",
+		"signatureAlgorithm": "RSASSA-PKCS1-v1_5",
+		"fingerprint": "1720e68f7a118345ff04f6fa59b8f665830ee6b9",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE+4ukUdmm9f4AmyQBwTLQFKPPCQj4fP2BpQkIl2hb4p6FxPGDP9z3JkIo2w2xkoxqs2JrTHn2MCdyh3aeyZWD4A=="
+	},
+	"S2V5NVJF": {
+		"serialNumber": "31b11acd6c1a8005",
+		"subject": "C=UK, O=NHSX, OU=COVID, CN=S2V5NVJF",
+		"issuer": "C=UK, O=NHSX, OU=COVID, CN=CA-temp",
+		"notBefore": "2021-05-01T00:00:00.000Z",
+		"notAfter": "2023-04-30T23:59:59.000Z",
+		"signatureAlgorithm": "RSASSA-PKCS1-v1_5",
+		"fingerprint": "bde5d84928584cad53fe022f85465ff602841b03",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEOFOUp1+SLuaM3NnV+OMZKZOoPg76T7D+vqRCasD0BrRZmlUH2gD+aVlpKvp+u7h8ywTR7T6Z6/iI2Qe6F5begg=="
+	},
+	"crm1HLAeaTo=": {
+		"serialNumber": "73fe8b011a5693b6",
+		"subject": "C=VA, O=STATO CITTA’ DEL VATICANO, OU=DIREZIONE DI SANITA' E IGIENE, CN=DSC_DGC_VA_01",
+		"issuer": "C=VA, O=STATO CITTA’ DEL VATICANO, OU=DIREZIONE DI SANITA' E IGIENE, CN=CSCA_DGC_VA_01",
+		"notBefore": "2021-06-25T09:47:00.000Z",
+		"notAfter": "2023-06-25T09:47:00.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "9fe204a0f633c6d04870470cf6ce5026fefde1d7",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEI6Q/krjPDaHJ2WsrBzR9sGYnYjFqkflAAWhJgXbXt3RuUVfJt4c53N6v9J2BE3kPqCVl9FbYrwqQ0vZ+Ps5e+Q=="
 	},
 	"EzYR1uk/E0I=": {
 		"serialNumber": "16",
@@ -2410,192 +2784,5 @@
 			"namedCurve": "P-256"
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEManlPIcO9J8UBpHCAbku/KkAfiBrGLIre1buTIzhhoncL0YIO+DQ9uPs6UfzPKXzQq791V5I5avhmpQ6j2zFsQ=="
-	},
-	"S2V5MVJF": {
-		"serialNumber": "",
-		"subject": "UNKNOWN",
-		"issuer": "UNKNOWN",
-		"notBefore": "2020-01-01",
-		"notAfter": "2030-01-01",
-		"signatureAlgorithm": "",
-		"fingerprint": "",
-		"publicKeyAlgorithm": {
-			"hash": {
-				"name": "SHA-256"
-			},
-			"name": "ECDSA",
-			"namedCurve": "P-256"
-		},
-		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEtWokvmqrJOv/0PO9Vy8lpb6SgWw+rao0qIXntO/Bf7ExryL3yyKRI73IqAh38Lk4joqHrZK8XLZV9PMclgmTVg=="
-	},
-	"S2V5M1JF": {
-		"serialNumber": "",
-		"subject": "UNKNOWN",
-		"issuer": "UNKNOWN",
-		"notBefore": "2020-01-01",
-		"notAfter": "2030-01-01",
-		"signatureAlgorithm": "",
-		"fingerprint": "",
-		"publicKeyAlgorithm": {
-			"hash": {
-				"name": "SHA-256"
-			},
-			"name": "ECDSA",
-			"namedCurve": "P-256"
-		},
-		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE2ZpDNa1VV6g2PkmyKoL1INO0MtTqE5WT45i3QhY9FFMjbF9ieqnHV4R814wrN3f3vzkx0VN/YJZH4rI1GDlfqw=="
-	},
-	"S2V5NFBSTw==": {
-		"serialNumber": "",
-		"subject": "UNKNOWN",
-		"issuer": "UNKNOWN",
-		"notBefore": "2020-01-01",
-		"notAfter": "2030-01-01",
-		"signatureAlgorithm": "",
-		"fingerprint": "",
-		"publicKeyAlgorithm": {
-			"hash": {
-				"name": "SHA-256"
-			},
-			"name": "ECDSA",
-			"namedCurve": "P-256"
-		},
-		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEEfIefhjjacwZ+xxKudJGqdHr0j95tWtYIUGPeWV2XWmduygfe3oIFJu/A2kYGmeZ4u/ERSTNM2ZXuE9k19xVJQ=="
-	},
-	"S2V5NVBSTw==": {
-		"serialNumber": "",
-		"subject": "UNKNOWN",
-		"issuer": "UNKNOWN",
-		"notBefore": "2020-01-01",
-		"notAfter": "2030-01-01",
-		"signatureAlgorithm": "",
-		"fingerprint": "",
-		"publicKeyAlgorithm": {
-			"hash": {
-				"name": "SHA-256"
-			},
-			"name": "ECDSA",
-			"namedCurve": "P-256"
-		},
-		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE+4ukUdmm9f4AmyQBwTLQFKPPCQj4fP2BpQkIl2hb4p6FxPGDP9z3JkIo2w2xkoxqs2JrTHn2MCdyh3aeyZWD4A=="
-	},
-	"S2V5MlJF": {
-		"serialNumber": "",
-		"subject": "UNKNOWN",
-		"issuer": "UNKNOWN",
-		"notBefore": "2020-01-01",
-		"notAfter": "2030-01-01",
-		"signatureAlgorithm": "",
-		"fingerprint": "",
-		"publicKeyAlgorithm": {
-			"hash": {
-				"name": "SHA-256"
-			},
-			"name": "ECDSA",
-			"namedCurve": "P-256"
-		},
-		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEAauvVllnjXm0toiI2cUQfCTdZiDQ6kvtoo1bSnl8W3Rq7WyOeHWYKhBaQ4rEBceqNl5+v1ZLGj0WfnIhXh246Q=="
-	},
-	"S2V5M1BSTw=": {
-		"serialNumber": "",
-		"subject": "UNKNOWN",
-		"issuer": "UNKNOWN",
-		"notBefore": "2020-01-01",
-		"notAfter": "2030-01-01",
-		"signatureAlgorithm": "",
-		"fingerprint": "",
-		"publicKeyAlgorithm": {
-			"hash": {
-				"name": "SHA-256"
-			},
-			"name": "ECDSA",
-			"namedCurve": "P-256"
-		},
-		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAErltiOh3nmU+x4p5r249O/2fBSnHkjJpas23lhMAtEYeQutHiw0G+zeEUNZ/n++/XbFoY5hH68d27cGaGW6uoxw=="
-	},
-	"S2V5MlBSTw==": {
-		"serialNumber": "",
-		"subject": "UNKNOWN",
-		"issuer": "UNKNOWN",
-		"notBefore": "2020-01-01",
-		"notAfter": "2030-01-01",
-		"signatureAlgorithm": "",
-		"fingerprint": "",
-		"publicKeyAlgorithm": {
-			"hash": {
-				"name": "SHA-256"
-			},
-			"name": "ECDSA",
-			"namedCurve": "P-256"
-		},
-		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEP6P6ZlbhcW1xZpp91qagUY+iLIyuu+CynzAlrqiiseqmOYH8uJ71CkbEYhbVh8TemnbaR0unE2j9EPK7Y/x7Vg=="
-	},
-	"S2V5M1BSTw==": {
-		"serialNumber": "",
-		"subject": "UNKNOWN",
-		"issuer": "UNKNOWN",
-		"notBefore": "2020-01-01",
-		"notAfter": "2030-01-01",
-		"signatureAlgorithm": "",
-		"fingerprint": "",
-		"publicKeyAlgorithm": {
-			"hash": {
-				"name": "SHA-256"
-			},
-			"name": "ECDSA",
-			"namedCurve": "P-256"
-		},
-		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAErltiOh3nmU+x4p5r249O/2fBSnHkjJpas23lhMAtEYeQutHiw0G+zeEUNZ/n++/XbFoY5hH68d27cGaGW6uoxw=="
-	},
-	"S2V5NFJF": {
-		"serialNumber": "",
-		"subject": "UNKNOWN",
-		"issuer": "UNKNOWN",
-		"notBefore": "2020-01-01",
-		"notAfter": "2030-01-01",
-		"signatureAlgorithm": "",
-		"fingerprint": "",
-		"publicKeyAlgorithm": {
-			"hash": {
-				"name": "SHA-256"
-			},
-			"name": "ECDSA",
-			"namedCurve": "P-256"
-		},
-		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE8g5iFLRT7NyRmKp7pcP8uEgoHFhfmcXOLLD4RUtX50/Rh4Cz7l/faAiODNMmCkcWLA1Z8WOZoNFQsdmeDjXuLQ=="
-	},
-	"S2V5MVBSTw==": {
-		"serialNumber": "",
-		"subject": "UNKNOWN",
-		"issuer": "UNKNOWN",
-		"notBefore": "2020-01-01",
-		"notAfter": "2030-01-01",
-		"signatureAlgorithm": "",
-		"fingerprint": "",
-		"publicKeyAlgorithm": {
-			"hash": {
-				"name": "SHA-256"
-			},
-			"name": "ECDSA",
-			"namedCurve": "P-256"
-		},
-		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEyfUqlGg4hfyPYgZJzl1KepkfTaX+F3592syCJ0ylVOHA4fE6vavLXE4cG+Whz/eqyW/rFuZ0HBHHEskmpCngOA=="
-	},
-	"S2V5NVJF": {
-		"serialNumber": "",
-		"subject": "UNKNOWN",
-		"issuer": "UNKNOWN",
-		"notBefore": "2020-01-01",
-		"notAfter": "2030-01-01",
-		"signatureAlgorithm": "",
-		"fingerprint": "",
-		"publicKeyAlgorithm": {
-			"hash": {
-				"name": "SHA-256"
-			},
-			"name": "ECDSA",
-			"namedCurve": "P-256"
-		},
-		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEOFOUp1+SLuaM3NnV+OMZKZOoPg76T7D+vqRCasD0BrRZmlUH2gD+aVlpKvp+u7h8ywTR7T6Z6/iI2Qe6F5begg=="
 	}
 }

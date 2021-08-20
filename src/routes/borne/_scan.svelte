@@ -16,6 +16,8 @@
 
 	let last_event: KeyboardEvent | null = null;
 
+	let externalRequest: Promise<Response> | null = null;
+
 	// Passes that have been validated recently and cannot be revalidated
 	let validated_passes: Map<string, number> = new Map();
 
@@ -23,7 +25,8 @@
 
 	function onKeyPress(event: KeyboardEvent) {
 		last_event = event;
-		if (event.key.length > 1) return;
+		// Handle event if we are in scanning mode and a single keycode was sent by the scanner
+		if (event.key.length > 1 || codeFoundPromise) return;
 		code += event.key;
 		if (timeout !== undefined) clearTimeout(timeout);
 		if (reset_timeout !== undefined) clearTimeout(reset_timeout);
@@ -56,7 +59,9 @@
 	}
 
 	async function makeRequest(r: HTTPRequest) {
-		return fetch(r.url, { method: r.method, body: r.body || undefined });
+		const body = r.method === 'GET' ? undefined : r.body;
+		externalRequest = fetch(r.url, { method: r.method, body });
+		return externalRequest;
 	}
 
 	async function onValid() {
@@ -92,6 +97,11 @@
 </script>
 
 <svelte:window on:keypress={onKeyPress} on:paste={onPaste} />
+<svelte:head>
+	{#if config.custom_css}
+		<link rel="stylesheet" href="data:text/css,{encodeURIComponent(config.custom_css)}" />
+	{/if}
+</svelte:head>
 
 <div
 	class="main container"
@@ -105,7 +115,7 @@
 		{:then pass}
 			<!-- svelte-ignore a11y-media-has-caption -->
 			<audio autoplay src="{assets}/valid.mp3" />
-			<div class="alert alert-success" role="alert">
+			<div class="validated_pass alert alert-success" role="alert">
 				<div class="row">
 					<div class="col-md-2"><div class="sign shallpass" /></div>
 					<div class="col-md-10">
@@ -126,7 +136,7 @@
 		{:catch err}
 			<!-- svelte-ignore a11y-media-has-caption -->
 			<audio autoplay src="{assets}/invalid.mp3" />
-			<div class="alert alert-danger" role="alert">
+			<div class="refused_pass alert alert-danger" role="alert">
 				<div class="row">
 					<div class="col-md-2"><div class="sign shallnotpass" /></div>
 					<div class="col-md-10">
@@ -144,14 +154,20 @@
 			</div>
 		{/await}
 	{:else}
-		<div class="row justify-content-center w-100">
-			{#each config.logo_urls as url}
-				<img alt="logo" src={url} class="col" style="object-fit: contain; max-height: 10em;" />
-			{/each}
-		</div>
-
-		<h1>{config.title}</h1>
-		<p>{config.description}</p>
+		<section id="welcome_message">
+			<div class="logos row justify-content-center w-100">
+				{#each config.logo_urls as url}
+					<img
+						alt="logo"
+						src={url}
+						class="logo col"
+						style="object-fit: contain; max-height: 10em;"
+					/>
+				{/each}
+			</div>
+			<h1>{config.title}</h1>
+			<p class="description">{config.description}</p>
+		</section>
 	{/if}
 
 	{#if config.video_scan}
@@ -170,6 +186,22 @@
 			<p>Code length: {code.length}</p>
 			<p>Last key pressed: {JSON.stringify(last_event?.key, null, ' ')}</p>
 		</div>
+		{#if externalRequest}
+			<div>
+				{#await externalRequest}
+					Requête externe en cours...
+				{:then r}
+					status: {r.status}
+					{r.statusText}
+					{#await r.text() then text}
+						body: {text}
+					{/await}
+				{:catch err}
+					Erreur dans la requête externe:
+					<pre>{err}</pre>
+				{/await}
+			</div>
+		{/if}
 	{/if}
 
 	<p class="fixed-bottom text-muted fw-lighter fst-italic" style="font-size: .8em">

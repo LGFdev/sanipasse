@@ -136,9 +136,20 @@ async function parseDGCFromCoseData(rawCoseData: Uint8Array): Promise<RawDGC> {
 	/**
 	 * Get a Verifier given a kid
 	 */
-	async function verifierFn(kid_bytes: Uint8Array): Promise<Verifier> {
+	async function verifierFn(kid_bytes: Uint8Array, algorithm: Algorithm): Promise<Verifier> {
 		kid = encodeb64(kid_bytes);
 		certificate = await findDGCPublicKey(kid);
+		// RSA public keys can be used with both RSA-PSS and RSASSA-PKCS1-v1_5,
+		// but subtlecrypto refuses to run the signature check if the algorithm
+		// specified when creating the CryptoKey object
+		// is not the same as the one used to sign the data.
+		if (
+			typeof certificate.publicKeyAlgorithm === 'object' &&
+			certificate.publicKeyAlgorithm.name.startsWith('RSA') &&
+			algorithm.name.startsWith('RSA')
+		) {
+			certificate.publicKeyAlgorithm.name = algorithm.name;
+		}
 		const key = await getCertificatePublicKey(certificate);
 		return { key };
 	}
@@ -200,10 +211,14 @@ async function getCertificatePublicKey({
 
 function getCertificateInfo(cert: DGC): CommonCertificateInfo {
 	const hcert = cert.hcert;
+	let dob = hcert.dob;
+	if (dob.search(/^(\d\d\.){2}(19|20)\d\d$/) != -1) {
+		dob = dob.split('.').reverse().join('-');
+	}
 	const common = {
 		first_name: hcert.nam.gn || (hcert.nam.gnt || '-').replace(/</g, ' '),
 		last_name: hcert.nam.fn || hcert.nam.fnt.replace(/</g, ' '),
-		date_of_birth: new Date(hcert.dob),
+		date_of_birth: new Date(dob),
 		code: cert.code,
 		source: { format: 'dgc', cert }
 	} as const;

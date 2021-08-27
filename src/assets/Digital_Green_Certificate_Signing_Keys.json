@@ -1663,6 +1663,28 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEcrxlv5/uGbsaXM/QMSpvZV2iNtF0o4QBech6LGpy3OEefbJLf+4iqI19QNWtUXEjlMMytB4+1ESLHdXyki5X2g=="
 	},
+	"qEgQcWPd3xU=": {
+		"serialNumber": "01",
+		"subject": "C=MK, ST=North Macedonia, L=Skopje, O=Ministry of Health, OU=Ministry of Health, CN=zdravstvo.gov.mk",
+		"issuer": "C=MK, ST=North Macedonia, L=Skopje, O=Ministry of Health, CN=zdravstvo.gov.mk, E=contact@zdravstvo.gov.mk",
+		"notBefore": "2021-08-23T12:22:02.000Z",
+		"notAfter": "2022-08-23T12:22:02.000Z",
+		"signatureAlgorithm": "RSASSA-PKCS1-v1_5",
+		"fingerprint": "dbd631b2b552ff7cfd67e239b4fa953628a74e8d",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "RSASSA-PKCS1-v1_5",
+			"publicExponent": {
+				"0": 1,
+				"1": 0,
+				"2": 1
+			},
+			"modulusLength": 4096
+		},
+		"publicKeyPem": "MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEA144Qzvk4vkmWoGZUPGRepcNVPCbXy0tLeaxmuDuTbJIfyO0TwxrQllUOF+pni559+knMmUUk7PqfvU8fsbrNXHn4Wh1LzIVZkz/GuiQ44bR3b7k9kcS9vfOx14WiP41zx/vOmQXWaGx+mzC+RD6+w5T8hAdRjol6nUHAvstL0MbIylv+Fhi4s1qpmr1rR5liG/KI3uzaMjJvQC6d3R9Ee+q3ULTJ81+WyVe9sK9hY5Z/KzFrMbnbH2Y1/voIcLc+vjjVCOFJKkXhjz00/wu6NalMMN6MC+G9gZMHp69CJPB45hIBiAKfGEI4dq8lCthqi2orRoXmAyf6LxSBL6wZVu+naTXUJMVoXjFNXIyszm1MRQiagaoqOyctY/bg/RQgVSDrjtEN4MeMArSbehogEZuYL8GRRrnOEbWb86DEwMAYDbbPFEab3hsyZejJ3bxZdylWNj1V8QPyP2uvOLAFGwsvSzw7E34b0RcpEeOoQeKrT8nKPpFOFIQ3gBxyqlw4T+v/iENIxDWoWdvUO2/bkidNXecSn3XlzTT7OW8IbJ0M7D9htz/SPd55XP5sU5gF3wnwuWMIq1auj/LXwbRAh63OiUG+Bo4ssL7AkMcOpkYl25QZQOXzWykI0/ZZ8Hu/968eoYvMxbQD4EARMGDMwdkU5G+nuHniTS52kONbrZUCAwEAAQ=="
+	},
 	"lzGYCpOBQsU=": {
 		"serialNumber": "7fe579a881eb001055ae27216b30da120634c771",
 		"subject": "C=NL, O=Aruba, OU=Ministry of Tourism Public Health and Sports, 2.5.4.5=1, CN=Health DSC for recovery",
@@ -2002,6 +2024,23 @@
 			"namedCurve": "P-256"
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEH2+GOTdCPhSUdDZmaM7hq/hRJkZCd3wPyOwB8lS30s4N81r4XFpv1Yev+1bfB4A173DByhZyIKkdnZc/FfaAXQ=="
+	},
+	"gEIK4Q/lAG0=": {
+		"serialNumber": "00a875f8a85cfe85f0",
+		"subject": "C=TR, ST=ANKARA, L=ÃANKAYA, O=T.C. SAÄLIK BAKANLIÄI, OU=SAÄLIK BÄ°LGÄ° SÄ°STEMLERÄ° GENEL MÃDÃRLÃÄÃ, CN=healthpassgwuat.saglik.gov.tr",
+		"issuer": "C=TR, ST=ANKARA, L=ÃANKAYA, O=T.C. SAÄLIK BAKANLIÄI, OU=SAÄLIK BÄ°LGÄ° SÄ°STEMLERÄ° GENEL MÃDÃRLÃÄÃ, CN=healthpassgwprod.saglik.gov.tr",
+		"notBefore": "2021-08-04T19:02:05.000Z",
+		"notAfter": "2023-08-04T19:02:05.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "200477077913499f729db8217ac5a140d85f5f1d",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE4gGExz9UXm77v21gaWNSjjtigr9VIyGL9S92FqnF99YqS/ekrLWvW4N6fmHfUST9VJLJVaB9uP3SX1rXlfq7lg=="
 	},
 	"S2V5M1BSTw==": {
 		"serialNumber": "4f0e753c1291e6b8",
@@ -2784,5 +2823,22 @@
 			"namedCurve": "P-256"
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEManlPIcO9J8UBpHCAbku/KkAfiBrGLIre1buTIzhhoncL0YIO+DQ9uPs6UfzPKXzQq791V5I5avhmpQ6j2zFsQ=="
+	},
+	"FhciF/j3plg=": {
+		"serialNumber": "7904c820b5908787040000001600000021000000",
+		"subject": "O=State enterprise \\\"DIIA\\\", CN=\\\"DIIA\\\". Green Certificate DSC 2, 2.5.4.5=22, C=UA, L=Kyiv",
+		"issuer": "O=State enterprise \\\"DIIA\\\", CN=\\\"DIIA\\\". Green Certificate CSCA, 2.5.4.5=UA-43395033-2021, C=UA, L=Kyiv, 2.5.4.97=NTRUA-43395033",
+		"notBefore": "2021-08-17T21:00:00.000Z",
+		"notAfter": "2023-08-17T20:59:59.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "6564fadb714a0f3c3e23c7a3db814d9e059b4156",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEd22zt56DQx1ao5dd4u6jU3KPELJdcWfl0+FJ6cVhCb8s0SmQleFtS9m5RQqVzbBr/JnUfqVZjvrPFzwpbgdMeQ=="
 	}
 }

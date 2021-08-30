@@ -1,9 +1,14 @@
+export interface TicketConfig {
+	print: boolean;
+	header?: string | null;
+	footer?: string | null;
+}
+
 function getTicketHtml(
     name: String = "",
-    date_of_birth: String = ""
+    date_of_birth: String = "",
+    config: TicketConfig
   ): String{
-  const header: String = localStorage.getItem("header");
-  const footer: String = localStorage.getItem("footer");
   let html: String = `
 <style type="text/css">
   body{
@@ -29,10 +34,10 @@ function getTicketHtml(
 
 <body>
   `;
-  if(undefined != header){
+  if(undefined != config.header){
     html = html.concat(
       `<header><pre>`,
-      header,
+      config.header,
       `</pre></header>`
     )
   }
@@ -44,10 +49,10 @@ function getTicketHtml(
     <p>✓ Vérifié le `,new Date().toLocaleString('fr-FR'),`</p>
   </article>
   `)
-  if(undefined != footer){
+  if(undefined != config.footer){
     html = html.concat(
       `<footer><pre>`,
-      footer,
+      config.footer,
       `</pre></footer>`
     )
   }
@@ -59,13 +64,17 @@ function getTicketHtml(
 
 export async function printTicket(
     name: String = "",
-    date_of_birth: String = ""
+    date_of_birth: String = "",
+    config: TicketConfig
   ){
+  if('undefined' == typeof config){
+    console.warn("printTicket config",config);
+  }
   const printingWindow = window.open("about:blank", 'Printing', 'width=350,height=300');
   printingWindow.onload = ()=>{
     printingWindow.document.title = "Sanipasse impression"
-    printingWindow.document.body.innerHTML = getTicketHtml(name, date_of_birth);
-  	printingWindow.print();
-  	printingWindow.close();
+    printingWindow.document.body.innerHTML = getTicketHtml(name, date_of_birth, config);
+    printingWindow.print();
+    printingWindow.close();
   }
 }

@@ -12,6 +12,23 @@
 					<input type="checkbox" bind:checked={config.print} />
 					Imprimer un ticket en cas de présentation d'un passe valide.
 				</label>
+				<div
+					class="form-label col-xl-4"
+					title="Largeur du ticket à imprimer"
+				>
+					<label for="ticketWidth">Largeur du ticket</label>
+					<div class="input-group">
+						<input
+							type="number"
+							class="form-control"
+							placeholder="90"
+							id="ticketWidth"
+							bind:value={config.width}
+							min="70" max="210"
+						/>
+						<div class="input-group-text">mm</div>
+					</div>
+				</div>
 				<div class="form-floating col-12  font-monospace text-muted">
 					<textarea
 						bind:value={config.header}

@@ -2,6 +2,7 @@ export interface TicketConfig {
 	print: boolean;
 	header?: string | null;
 	footer?: string | null;
+	width: number;
 }
 
 function getTicketHtml(
@@ -9,10 +10,14 @@ function getTicketHtml(
     date_of_birth: String = "",
     config: TicketConfig
   ): String{
+console.log("config",config);
+  if(undefined == config.width){
+    config.width = 90;
+  }
   let html: String = `
 <style type="text/css">
   body{
-    width: 90mm;
+    width: `+config.width+`mm;
   }
   p{
     padding: 0;
@@ -21,7 +26,7 @@ function getTicketHtml(
   input{
     border: none;
     border-bottom: 0.5mm dotted black;
-    width: 50mm;
+    width: calc( `+config.width+`mm - 20mm );
   }
   article{
     margin: 2mm 0;

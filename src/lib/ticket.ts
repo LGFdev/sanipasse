@@ -10,7 +10,6 @@ function getTicketHtml(
     date_of_birth: String = "",
     config: TicketConfig
   ): String{
-console.log("config",config);
   if(undefined == config.width){
     config.width = 90;
   }
@@ -72,9 +71,6 @@ export async function printTicket(
     date_of_birth: String = "",
     config: TicketConfig
   ){
-  if('undefined' == typeof config){
-    console.warn("printTicket config",config);
-  }
   const printingWindow = window.open("about:blank", 'Printing', 'width=350,height=300');
   printingWindow.onload = ()=>{
     printingWindow.document.title = "Sanipasse impression"
